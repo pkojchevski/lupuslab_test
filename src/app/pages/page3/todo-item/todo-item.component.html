@@ -1,0 +1,23 @@
+<mat-card class="todo-item" (click)="onTodoClicked()" [class.completed]="todo?.completed">
+    <div class="check-box">
+        <mat-icon class="check-box__icon" color="green">check</mat-icon>
+    </div>
+
+    <div class="todo-text">
+        {{ todo?.text }}
+    </div>
+
+    <div class="todo-controls-box" appToolTipSingleton (click)="$event.stopPropagation()">
+        <div class="todo-control-button" appToolTip="Edit Todo" (click)="onEditClicked()">
+            <mat-icon color="primary">edit</mat-icon>
+        </div>
+
+        <div class="todo-control-button is-danger" appToolTip="Delete Todo" (click)="onDeleteClicked()">
+            <mat-icon color="warn">delete</mat-icon>
+        </div>
+    </div>
+</mat-card>
+
+
+
+

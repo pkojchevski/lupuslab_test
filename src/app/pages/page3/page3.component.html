@@ -1,0 +1,15 @@
+<main class="container">
+    <div class="todo-form">
+        <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+            <app-input-form formControlName="todoText" placeholder="Add todo"></app-input-form>
+              <button mat-mini-fab color="primary" type="submit" class="add-todo-button">
+                <mat-icon>add</mat-icon>
+              </button>
+        </form>
+    </div>
+    <div class="todo-list">
+        <app-todo-list></app-todo-list>
+    </div>     
+
+
+</main>

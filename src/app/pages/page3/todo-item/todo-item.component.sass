@@ -1,0 +1,25 @@
+.todo-item
+	display: flex
+	align-items: center
+	justify-content: space-between
+	position: relative
+	cursor: pointer
+	font-size: 18px
+	border-bottom: 1px solid #f2f3f5
+	&.completed
+		color: #aaa
+	.todo-item
+		.check-box
+			display: flex
+			flex-shrink: 0
+			border: 2px solid #eee
+			border-radius: 50%
+			margin-right: 20px
+			height: 28px
+			width: 28px
+			.check-box__icon
+				border: 1px solid green
+				border-radius: 100%
+	.todo-controls-box
+		display: flex
+		align-items: center

@@ -1,0 +1,14 @@
+
+    <form [formGroup]="inputForm" (ngSubmit)="onSearch()" class="search-form">
+     <app-input-form formControlName="inputValue" placeholder="Search gallery"></app-input-form>
+         <button mat-mini-fab color="primary" type="submit" class="search-button">
+           <mat-icon>search</mat-icon>
+         </button>
+   </form>
+    <mat-grid-list cols="3" rowHeight="2:1" >
+        <mat-grid-tile *ngFor="let image of images$|async">
+         <img src="{{ image.urls.small }}" alt="" />
+        </mat-grid-tile>
+   </mat-grid-list>
+
+ 

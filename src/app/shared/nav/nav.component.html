@@ -1,0 +1,41 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport 
+       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+       [mode] = "(isHandset$ | async) ? 'over' : 'side'"
+       [opened]="false"
+    >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+        <a *ngIf = "isLoggedIn$ | async" mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
+        <a *ngIf = "((isLoggedIn$ | async) === false)" mat-list-item routerLink="/logout" (click)="drawer.close();logOut()">Logout</a>
+        <a mat-list-item routerLink="/page1" routerLinkActive = "active" (click)="drawer.close()">Page1</a>
+        <a mat-list-item routerLink="/page2" routerLinkActive = "active" (click)="drawer.close()">Page2</a>
+        <a mat-list-item routerLink="/page3" routerLinkActive = "active" (click)="drawer.close()">Page3</a>
+    </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button 
+                type="button"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="(isHandset$|async)">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span class="logo" routerLink="/">Test app</span>
+            <span class="full-space"></span>
+            <div *ngIf="((isHandset$ | async) === false)">
+                <a *ngIf="isLoggedIn$ | async" mat-button (click)="drawer.close();logOut()">Logout</a>
+                <a *ngIf="((isLoggedIn$ | async) === false)" mat-button routerLink="/login" (click)="drawer.close()">Login</a>
+                <a mat-button routerLink="/page1" routerLinkActive="active" (click)="drawer.close()">Page1</a>
+                <a mat-button routerLink="/page2" routerLinkActive="active" (click)="drawer.close()">Page2</a>
+                <a mat-button routerLink="/page3" routerLinkActive="active" (click)="drawer.close()">Page3</a>
+            </div>
+        </mat-toolbar>
+
+        <ng-content></ng-content>
+        <!-- <router-outlet></router-outlet> -->
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>

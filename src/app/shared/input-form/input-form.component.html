@@ -1,0 +1,33 @@
+<form [formGroup]="inputForm" class="input-form">
+    <mat-form-field *ngIf="type === 'input'">
+      <input
+        matInput
+        formControlName="inputValue"
+        type="text"
+        placeholder="{{placeholder}}"
+        autocomplete="off"
+      />
+
+      <mat-error color="warn" *ngIf="inputValueControl?.errors">
+        This value is required
+      </mat-error>
+      
+    </mat-form-field>
+
+    <mat-form-field *ngIf="type === 'textarea'">
+      <textarea
+        matInput
+        formControlName="inputValue"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+        placeholder="{{placeholder}}"
+        autocomplete="off"
+      ></textarea>
+
+      <mat-error color="warn" *ngIf="inputValueControl?.errors">
+        This value is required
+      </mat-error>
+      
+    </mat-form-field>
+</form>

@@ -1,0 +1,11 @@
+<h2 class="title">Edit Todo</h2>
+<div mat-dialog-content>
+    
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+        <app-input-form formControlName="textTodo" placeholder="Edit todo" inputVal="{{todo.text}}" type="input"></app-input-form>
+        <div class="buttons">
+            <button mat-button color="warn" (click)="close()">Cancel</button>
+            <button mat-button color="primary" type="submit">Save</button>
+        </div>
+    </form>
+</div>
